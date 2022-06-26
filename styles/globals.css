@@ -1,16 +1,33 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "vazir";
+    src: url("/static/fonts/vazir/Vazir.ttf") format("truetype");
+    src: url("/static/fonts/vazir/Vazir.eot") format("embedded-opentype");
+    src: url("/static/fonts/vazir/Vazir.woff") format("woff");
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+.task-list-item::before {
+    @apply hidden;
 }
 
-* {
-  box-sizing: border-box;
+.task-list-item {
+    @apply list-none;
+}
+
+.footnotes {
+    @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+}
+
+.csl-entry {
+    @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
 }
