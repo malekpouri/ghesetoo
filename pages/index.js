@@ -6,16 +6,16 @@ import { useEffect, useState } from "react";
 
 const MAX_DISPLAY = 10
 
-export default function Home() {
-  const [stories, setStories] = useState(null)
-  useEffect(() => {
-    const getStoriesData = async () => {
-      const response = await fetch(`${process.env.public_url}/api/getStories`)
-      const data = await response.json()
-      setStories(data)
-    }
-    getStoriesData()
-  }, [])
+export default function Home({stories}) {
+//   const [stories, setStories] = useState(null)
+//   useEffect(() => {
+//     const getStoriesData = async () => {
+//       const response = await fetch(`${process.env.public_url}/api/getStories`)
+//       const data = await response.json()
+//       setStories(data)
+//     }
+//     getStoriesData()
+//   }, [])
 
   return (
     <>
@@ -67,4 +67,14 @@ export default function Home() {
       )}
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+   const response = await fetch(`${process.env.public_url}/api/getStories`)
+   const data = await response.json()
+  return {
+    props: {
+      stories: data,
+    },
+  }
 }
