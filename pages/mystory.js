@@ -43,7 +43,7 @@ const mystory = () => {
   })
 
   useEffect(() => {
-    const response = fetch(process.env.NEXT_PUBLIC_API_URL + `/api/getStoryByEmail?email=${session.user.email}`)
+    const response = fetch(process.env.public_url + `/api/getStoryByEmail?email=${session.user.email}`)
     response.then(res => res.json()).then(data => {
       if (data.nickname === null) {
         nicknameRef.current.value = data.name + " " + (data.family ? data.family : "")
@@ -56,7 +56,7 @@ const mystory = () => {
       hardwareRef.current.value = data.hardware
       softwareRef.current.value = data.software
       whatYouWantRef.current.value = data.whatYouWant
-      setImageUrl(data.profilePicture ? `${process.env.NEXT_PUBLIC_API_URL}/api/getImageByName/`+data.profilePicture:null)
+      setImageUrl(data.profilePicture ? `${process.env.public_url}/api/getImageByName/`+data.profilePicture:null)
     })
   }, [])
 
@@ -97,7 +97,7 @@ const mystory = () => {
           const body = new FormData()
           body.append('file', image, image.name)
           body.append('email', session.user.email)
-          axios.post(process.env.NEXT_PUBLIC_API_URL + '/api/savePicture', body, {
+          axios.post(process.env.public_url + '/api/savePicture', body, {
             headers: {
               Authorization: session.userToken,
             },

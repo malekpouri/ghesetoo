@@ -1,19 +1,9 @@
 import Link from '/components/Link'
-import { PageSEO } from '/components/SEO'
+import {PageSEO} from '/components/SEO'
 import Tag from '/components/Tag'
-import { useEffect, useState } from 'react'
-import {getSession} from "next-auth/react";
 
 export default function Tags({tags}) {
-  // const [tags, setTags] = useState([])
-  // useEffect(() => {
-  //   const getTagList = async () => {
-  //     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getAllTags`)
-  //     const data = await response.json()
-  //     setTags(data)
-  //   }
-  //   getTagList()
-  // }, [])
+
   return (
     <>
       <PageSEO title={`برچسپ ها`} />
@@ -46,7 +36,7 @@ export default function Tags({tags}) {
 }
 
 export async function getServerSideProps(context) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getAllTags`)
+  const response = await fetch(`${process.env.API_URL}/api/getAllTags`)
   const data = await response.json()
   return {
     props: {

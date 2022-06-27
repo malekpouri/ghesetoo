@@ -27,7 +27,7 @@ function dashboard(props) {
   useEffect(() => {
     if (choice) {
       console.log("delete story handler")
-      axios.delete(process.env.NEXT_PUBLIC_API_URL + '/api/deleteStory',  {
+      axios.delete(process.env.public_url + '/api/deleteStory',  {
         headers: {
           Authorization: session.userToken,
           'Access-Control-Allow-Origin': '*',
@@ -62,7 +62,7 @@ if (saveProfile) {
       family:family,
     }
 
-    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/saveUser', {
+    const response = await fetch(process.env.public_url + '/api/saveUser', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-Type': 'application/json' },

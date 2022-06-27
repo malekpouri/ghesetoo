@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
   const {
     params: { storyId },
   } = context
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getStoryById/${storyId}`)
+  const response = await fetch(`${process.env.API_URL}/api/getStoryById/${storyId}`)
   if (response.status !== 200) {
     return {
       props: {
@@ -39,7 +39,7 @@ function storyById(props) {
             <div className="relative h-48 w-48 ">
               <Image
                 src={
-                  process.env.NEXT_PUBLIC_API_URL + '/api/getImageByName/' + story.profilePicture
+                  process.env.public_url + '/api/getImageByName/' + story.profilePicture
                 }
                 alt="avatar"
                 layout="fill"

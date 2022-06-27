@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['localhost','gheseto.ir'],
   },
+  env: {
+    public_url: 'https://gheseto.ir:8443',
+  },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,

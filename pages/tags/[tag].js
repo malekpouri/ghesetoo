@@ -5,7 +5,7 @@ import StoryLayout from "@/layouts/StoryLayout";
 export async function getServerSideProps(context) {
   const { params, req, res } = context
   const { tag } = params
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getStoryByTag?tag=${tag}`)
+  const response = await fetch(`${process.env.API_URL}/api/getStoryByTag?tag=${tag}`)
   const data = await response.json()
   const stories = data
   return {

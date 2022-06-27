@@ -10,7 +10,7 @@ export default function Home() {
   const [stories, setStories] = useState(null)
   useEffect(() => {
     const getStoriesData = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getStories`)
+      const response = await fetch(`${process.env.public_url}/api/getStories`)
       const data = await response.json()
       setStories(data)
     }
@@ -45,7 +45,7 @@ export default function Home() {
                 title={story.nickname}
                 nickName={story.nickName}
                 imgProfileURL={
-                  process.env.NEXT_PUBLIC_API_URL + '/api/getImageByName/' + story.profilePicture
+                  process.env.public_url + '/api/getImageByName/' + story.profilePicture
                 }
                 shortStory={story.shortStory}
                 tags={story.jobTitle}

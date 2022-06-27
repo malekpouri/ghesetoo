@@ -11,7 +11,7 @@ function storiesList() {
   const [pagination, setPagination] = useState({});
   useEffect(() => {
     const fetchStories = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/getStories`)
+      const response = await fetch(`${process.env.public_url}/api/getStories`)
       const data = await response.json()
       setStories(data)
       setInitialDisplayStories(data.slice(0, STORIES_PER_PAGE))

@@ -53,7 +53,7 @@ function StoryLayout({ stories, title, initialDisplayStories = [], pagination })
               shortStory={story.shortStory}
               nickName={story.nickName}
               imgProfileURL={
-                process.env.NEXT_PUBLIC_API_URL + '/api/getImageByName/' + story.profilePicture
+                process.env.public_url + '/api/getImageByName/' + story.profilePicture
               }
               tags={story.jobTitle}
             />
