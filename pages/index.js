@@ -2,7 +2,6 @@ import Link from "@/components/Link";
 import {PageSEO} from "@/components/SEO";
 import siteMetadata from "@/data/siteMetadata";
 import Card from "@/components/Card";
-// import {useEffect, useState} from "react";
 
 const MAX_DISPLAY = 10
 
