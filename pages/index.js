@@ -7,16 +7,6 @@ import Card from "@/components/Card";
 const MAX_DISPLAY = 10
 
 export default function Home({stories}) {
-  // console.log(stories)
-  // const [stories, setStories] = useState(null)
-  // useEffect(() => {
-  //   const getStoriesData = async () => {
-  //     const response = await fetch(`${process.env.public_url}/api/getStories`)
-  //     const data = await response.json()
-  //     setStories(data)
-  //   }
-  //   getStoriesData()
-  // }, [])
 
   return (
     <>
