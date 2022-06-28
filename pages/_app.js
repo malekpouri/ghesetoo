@@ -11,7 +11,7 @@ function MyApp({Component, pageProps: {session, ...pageProps}}) {
             <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
                 <Head>
                     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-                    <GoogleAnalytics/>
+                    {/*<GoogleAnalytics/>*/}
                 </Head>
                 <Layout>
                     <Component {...pageProps} />

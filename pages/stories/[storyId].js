@@ -28,7 +28,7 @@ export async function getServerSideProps(context) {
 function storyById(props) {
   const { story } = props
   if (!story) {
-    return <>Not Found...</>
+    return <>پیدا نشد ...</>
   }
   return (
     <>
@@ -82,7 +82,7 @@ function storyById(props) {
                     در کارت چه سخت افزاری بیشتیرن کارایی رو برات داره و احتمالا کنفیگش چیه ؟
                   </time>
                   <p className="mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
-                    A{story.hardware}
+                    {story.hardware}
                   </p>
                 </li>
                 <li className="mb-10 ml-6">
