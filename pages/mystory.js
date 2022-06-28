@@ -65,13 +65,13 @@ const mystory = () => {
     try {
       const result = await schema.validate(
         {
-          nickname: nicknameRef.current.value,
-          jobTitle: jobTitleRef.current.value,
-          shortStory: shortStoryRef.current.value,
-          whatWhere: whatWhereRef.current.value,
-          hardware: hardwareRef.current.value,
-          software: softwareRef.current.value,
-          whatYouWant: whatYouWantRef.current.value,
+          nickname: nicknameRef.current.value.trim(),
+          jobTitle: jobTitleRef.current.value.trim(),
+          shortStory: shortStoryRef.current.value.trim(),
+          whatWhere: whatWhereRef.current.value.trim(),
+          hardware: hardwareRef.current.value.trim(),
+          software: softwareRef.current.value.trim(),
+          whatYouWant: whatYouWantRef.current.value.trim(),
           profilePictureVal: imageUrl,
         },
         { abortEarly: false }

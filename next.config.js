@@ -5,7 +5,8 @@ const nextConfig = {
     domains: ['localhost','gheseto.ir'],
   },
   env: {
-    public_url: 'https://gheseto.ir:8443',
+    public_url: process.env.NEXT_PUBLIC_API_URL,
+    public_api_url:process.env.API_URL
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({

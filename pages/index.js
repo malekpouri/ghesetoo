@@ -1,12 +1,14 @@
 import Link from "@/components/Link";
-import { PageSEO } from "@/components/SEO";
+import {PageSEO} from "@/components/SEO";
 import siteMetadata from "@/data/siteMetadata";
 import Card from "@/components/Card";
-import { useEffect, useState } from "react";
+// import {useEffect, useState} from "react";
 
 const MAX_DISPLAY = 10
 
 export default function Home({stories}) {
+  console.log(stories)
+  // console.log(stories)
   // const [stories, setStories] = useState(null)
   // useEffect(() => {
   //   const getStoriesData = async () => {
@@ -71,6 +73,7 @@ export default function Home({stories}) {
 export async function getServerSideProps(context) {
   const response = await fetch(`${process.env.API_URL}/api/getStories`)
   const data = await response.json()
+  console.log(data)
   return {
     props: {
       stories: data,
