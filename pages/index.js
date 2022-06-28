@@ -7,7 +7,6 @@ import Card from "@/components/Card";
 const MAX_DISPLAY = 10
 
 export default function Home({stories}) {
-  console.log(stories)
   // console.log(stories)
   // const [stories, setStories] = useState(null)
   // useEffect(() => {
@@ -73,7 +72,6 @@ export default function Home({stories}) {
 export async function getServerSideProps(context) {
   const response = await fetch(`${process.env.API_URL}/api/getStories`)
   const data = await response.json()
-  console.log(data)
   return {
     props: {
       stories: data,

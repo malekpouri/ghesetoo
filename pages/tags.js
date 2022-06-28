@@ -3,7 +3,6 @@ import {PageSEO} from '/components/SEO'
 import Tag from '/components/Tag'
 
 export default function Tags({tags}) {
-  console.log(tags)
   return (
     <>
       <PageSEO title={`برچسپ ها`} />
