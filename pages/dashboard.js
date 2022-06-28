@@ -26,7 +26,6 @@ function dashboard(props) {
 
   useEffect(() => {
     if (choice) {
-      console.log("delete story handler")
       axios.delete(process.env.public_url + '/api/deleteStory',  {
         headers: {
           Authorization: session.userToken,
@@ -34,8 +33,6 @@ function dashboard(props) {
         },
       }).then((res) => {
         signOut({ callbackUrl: '/' })
-      }).catch((err) => {
-        console.log(err);
       })
     }
   }, [choice])

@@ -22,7 +22,6 @@ export default NextAuth({
         body: JSON.stringify(user),
         headers: { 'Content-Type': 'application/json' },
       })
-      console.log(response)
       return true
     },
     async session({ session, token, user }) {
