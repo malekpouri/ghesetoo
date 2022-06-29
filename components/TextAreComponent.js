@@ -12,13 +12,16 @@ function TextAreComponent(props) {
     }
 
     useEffect(() => {
-        const charLength = refElement.current.value.length
-        const currentLength = max_char - charLength
-        setCharacterLeft(currentLength)
-        if (currentLength < 100)
-            setCharCSS('-red-700')
-        else
-            setCharCSS('-green-700')
+        const checkMaxLength = () => {
+            const charLength = refElement.current.value.length
+            const currentLength = max_char - charLength
+            setCharacterLeft(currentLength)
+            if (currentLength < 100)
+                setCharCSS('-red-700')
+            else
+                setCharCSS('-green-700')
+        }
+        checkMaxLength()
     }),[];
 
     return (
