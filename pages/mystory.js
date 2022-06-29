@@ -248,6 +248,7 @@ const mystory = () => {
                 id="nickNameInput"
                 ref={nicknameRef}
                 placeholder="نام و نام خانوادگی"
+                maxLength="100"
               />
             </div>
             <div className="mb-3 w-full md:mr-4">
@@ -266,6 +267,7 @@ const mystory = () => {
                 id="titleRefInput"
                 ref={jobTitleRef}
                 placeholder="مثلا : خبر نگار یا برنامه نویس"
+                maxLength="100"
               />
             </div>
           </div>
