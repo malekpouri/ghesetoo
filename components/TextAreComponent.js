@@ -19,7 +19,7 @@ function TextAreComponent(props) {
             setCharCSS('-red-700')
         else
             setCharCSS('-green-700')
-    });
+    }),[];
 
     return (
         <>
