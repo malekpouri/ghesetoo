@@ -16,7 +16,6 @@ export default function Home() {
 
     const {data} = useSWR('getStories', fetcher)
     useEffect(() => {
-        console.log(data)
         if (data)
             setStories(data)
     }, [data]);
