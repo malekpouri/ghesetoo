@@ -203,6 +203,7 @@ const mystory = () => {
                 layout="fill"
                 objectFit="cover"
                 className="rounded-full "
+                priority
               />
               <label
                 htmlFor="dropzone-file"
