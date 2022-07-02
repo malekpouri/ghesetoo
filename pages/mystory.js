@@ -23,7 +23,7 @@ const mystory = () => {
   const whatYouWantRef = useRef(null)
   const jobTitleRef = useRef(null)
   const nicknameRef = useRef(null)
-
+  const [fileLimit, setFileLimit] = useState(false);
   const { data: session } = useSession()
 
   if (!session) {
@@ -39,7 +39,7 @@ const mystory = () => {
     hardware: yup.string().min(50, "قسمت سخت افزار حد اقل باید ۵۰ کلمه باشه"),
     software: yup.string().min(50, "قسمت نرم افزار حد اقل باید ۵۰ کلمه باشه"),
     whatYouWant: yup.string().min(50, "قسمت میخواهی محیط کارت چطوری باشه اقل باید ۵۰ کلمه باشه"),
-
+    fileLimitVal: yup.boolean().oneOf([true], 'حجم تصویر باید کمتر از 5 مگابایت باشد')
   })
 
   useEffect(() => {
@@ -73,6 +73,7 @@ const mystory = () => {
           software: softwareRef.current.value.trim(),
           whatYouWant: whatYouWantRef.current.value.trim(),
           profilePictureVal: imageUrl,
+          fileLimitVal: fileLimit
         },
         { abortEarly: false }
       )
@@ -121,6 +122,14 @@ const mystory = () => {
   }, [saveStoryState])
 
   const changeProfilePictureHandler = (e) => {
+    const fileLimitSize= 5 * 1024 * 1024
+    if (e.target.files[0].size < fileLimitSize){
+      setFileLimit(true)
+    }else{
+      setFileLimit(false)
+      return
+    }
+
     if (e.target.files && e.target.files[0]) {
       const i = e.target.files[0]
       setImage(i)
@@ -214,6 +223,7 @@ const mystory = () => {
                   id="dropzone-file"
                   type="file"
                   className="hidden"
+                  accept="image/jpg, image/jpeg"
                   onChange={changeProfilePictureHandler}
                 />
               </label>
