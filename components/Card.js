@@ -19,7 +19,7 @@ const Card = ({ id ,title, shortStory, nickName, imgProfileURL, tags }) => (
         <a href={`/stories/${id}`}>
           <div className="mb-2 text-xl font-bold text-gray-900  dark:text-white"> یک {tags}</div>
         </a>
-        <p className="line-clamp-3 lg:line-clamp-5 text-gray-700 text-base dark:text-gray-400 md:line-clamp-4 "> {shortStory}
+        <p className="whitespace-pre-line line-clamp-3 lg:line-clamp-5 text-gray-700 text-base dark:text-gray-400 md:line-clamp-4 "> {shortStory}
         </p>
       </div>
       <div className="flex items-center dark:text-gray-400 ">

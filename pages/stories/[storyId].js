@@ -59,7 +59,7 @@ function storyById({storyId}) {
                         <div className="text-gray-500 dark:text-gray-400">{story.jobTitle}</div>
                         <div className="flex space-x-3 pt-6">{story.email}</div>
                     </div>
-                    <div className="prose max-w-none pt-8 pb-8 text-justify dark:prose-dark xl:col-span-2">
+                    <div className="prose whitespace-pre-line max-w-none pt-8 pb-8 text-justify dark:prose-dark xl:col-span-2">
                         {story.shortStory}
                         <div className="mt-10 opacity-100">
                             <ol className="relative border-r border-gray-200 dark:border-gray-700">
@@ -75,7 +75,7 @@ function storyById({storyId}) {
                                         className="mb-2 mr-3 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                         در حال حاظر کجا و مشغول به چه کاری هستی ؟
                                     </time>
-                                    <p className="mb-4 mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
+                                    <p className="whitespace-pre-line mb-4 mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
                                         {story.whatWhere}
                                     </p>
                                 </li>
@@ -91,7 +91,7 @@ function storyById({storyId}) {
                                         className="mb-2 mr-3 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                         در کارت چه سخت افزاری بیشتیرن کارایی رو برات داره و احتمالا کنفیگش چیه ؟
                                     </time>
-                                    <p className="mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
+                                    <p className="whitespace-pre-line mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
                                         {story.hardware}
                                     </p>
                                 </li>
@@ -107,7 +107,7 @@ function storyById({storyId}) {
                                         className="mb-2 mr-3 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                         نرم افزارهایی که بیشترین استفاده رو در کارت دارن چی هست ؟
                                     </time>
-                                    <p className="mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
+                                    <p className="whitespace-pre-line mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
                                         {story.software}
                                     </p>
                                 </li>
@@ -123,7 +123,7 @@ function storyById({storyId}) {
                                         className="mb-2 mr-3 block text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                                         دوست داری محیط کار رویاییت چه شکلی و یا چه خصوصیاتی داشته باشه ؟
                                     </time>
-                                    <p className="mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
+                                    <p className="whitespace-pre-line mr-3 text-base font-normal text-gray-500 dark:text-gray-400">
                                         {story.whatYouWant}
                                     </p>
                                 </li>
