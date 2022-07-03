@@ -131,10 +131,10 @@ const mystory = () => {
     }, [bigFileState])
     const changeProfilePictureHandler = (e) => {
         const fileLimitSize = 5 * 1024 * 1024
-        if (e.target.files && e.target.files[0] && e.target.files[0].size < fileLimitSize) {
+        if (e.target.files[0].size < fileLimitSize) {
             setFileLimit(true)
             setBigFileState(false)
-        } else if (e.target.files && e.target.files[0] && e.target.files[0].size > fileLimitSize){
+        } else {
             setFileLimit(false)
             setBigFileState(true)
             return
