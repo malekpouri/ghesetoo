@@ -24,7 +24,7 @@ const mystory = () => {
     const whatYouWantRef = useRef(null)
     const jobTitleRef = useRef(null)
     const nicknameRef = useRef(null)
-    const [fileLimit, setFileLimit] = useState(false);
+    const [fileLimit, setFileLimit] = useState(true);
     const {data: session} = useSession()
 
     if (!session) {
