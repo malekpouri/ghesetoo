@@ -340,8 +340,8 @@ const mystory = () => {
                         <TextAreComponent
                             textareaId={'whatYouWant'}
                             refElement={whatYouWantRef}
-                            textareaLabel={'محیط کار رویاییت چه شکلیه؟'}
-                            placeholder="دوست داری محیط کارت چه شکلی باشه؟"
+                            textareaLabel={'رویات برای محیط کارت چیه؟'}
+                            placeholder="دوست داری در محیط کار یا زندگیت چه تغیراتی صورت بگیره؟"
                         />
                     </div>
                 </div>
