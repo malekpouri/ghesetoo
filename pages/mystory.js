@@ -7,7 +7,6 @@ import AccessDenied from './404'
 import Avatar from '@/data/image/avatar.png'
 import Image from 'next/image'
 import axios from 'axios'
-import {log} from "sharp/lib/libvips";
 
 const mystory = () => {
     /* eslint-disable */
@@ -131,10 +130,10 @@ const mystory = () => {
     }, [bigFileState])
     const changeProfilePictureHandler = (e) => {
         const fileLimitSize = 5 * 1024 * 1024
-        if (e.target.files[0].size < fileLimitSize) {
+        if (e.target.files && e.target.files[0] && e.target.files[0].size < fileLimitSize) {
             setFileLimit(true)
             setBigFileState(false)
-        } else {
+        } else if (e.target.files && e.target.files[0] && e.target.files[0].size > fileLimitSize) {
             setFileLimit(false)
             setBigFileState(true)
             return
