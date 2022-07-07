@@ -32,46 +32,56 @@ const Layout = ({children}) => {
                         </Link>
                     </div>
                     <div className="flex items-center text-base leading-5">
-                        <div className="hidden sm:block">
+                        <ul className="hidden sm:block">
                             {headerNavLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    href={link.href}
-                                    className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                >
-                                    {link.title}
-                                </Link>
+                                <li className='inline-block' key={link.title}>
+                                    <Link
+                                        key={link.title}
+                                        href={link.href}
+                                        className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                    >
+                                        {link.title}
+                                    </Link>
+                                </li>
                             ))}
                             {session ? (
                                 <>
-                                    <Link
-                                        href={'/mystory'}
-                                        className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                    >
-                                        داستان من
-                                    </Link>
-                                    <Link
-                                        href={'/dashboard'}
-                                        className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                    >
-                                        داشبورد
-                                    </Link>
-                                    <Link
-                                        href={'/api/auth/signout'}
-                                        className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                    >
-                                        خروج
-                                    </Link>
+                                    <li className='inline-block' >
+                                        <Link
+                                            href={'/mystory'}
+                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                        >
+                                            داستان من
+                                        </Link>
+                                    </li>
+                                    <li className='inline-block' >
+                                        <Link
+                                            href={'/dashboard'}
+                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                        >
+                                            داشبورد
+                                        </Link>
+                                    </li>
+                                    <li className='inline-block' >
+                                        <Link
+                                            href={'/api/auth/signout'}
+                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                        >
+                                            خروج
+                                        </Link>
+                                    </li>
                                 </>
                             ) : (
-                                <Link
-                                    href={'/api/auth/signin'}
-                                    className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                >
-                                    ورود
-                                </Link>
+                                <li className='inline-block'>
+                                    <Link
+                                        href={'/api/auth/signin'}
+                                        className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                    >
+                                        ورود
+                                    </Link>
+                                </li>
                             )}
-                        </div>
+                        </ul>
                         <ThemeSwitch/>
                         <MobileNav/>
                     </div>
