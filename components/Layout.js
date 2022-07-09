@@ -5,11 +5,11 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import {useSession} from 'next-auth/react'
-import headerNavLinks from '/data/headerNavLinks'
+import {headerNavLinks, sessionHeaderNavLink , signInHeaderNavLink} from '/data/headerNavLinks'
 
 
 const Layout = ({children}) => {
-    const {data: session, status} = useSession()
+    const {data: session} = useSession()
 
     return (
         <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
@@ -33,10 +33,9 @@ const Layout = ({children}) => {
                     </div>
                     <div className="flex items-center text-base leading-5">
                         <ul className="hidden sm:block">
-                            {headerNavLinks.map((link) => (
-                                <li className='inline-block' key={link.title}>
+                            {headerNavLinks.map((link, index) => (
+                                <li className='inline-block' key={index}>
                                     <Link
-                                        key={link.title}
                                         href={link.href}
                                         className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
                                     >
@@ -46,38 +45,24 @@ const Layout = ({children}) => {
                             ))}
                             {session ? (
                                 <>
-                                    <li className='inline-block' >
-                                        <Link
-                                            href={'/mystory'}
-                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                        >
-                                            داستان من
-                                        </Link>
-                                    </li>
-                                    <li className='inline-block' >
-                                        <Link
-                                            href={'/dashboard'}
-                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                        >
-                                            داشبورد
-                                        </Link>
-                                    </li>
-                                    <li className='inline-block' >
-                                        <Link
-                                            href={'/api/auth/signout'}
-                                            className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-                                        >
-                                            خروج
-                                        </Link>
-                                    </li>
+                                    {sessionHeaderNavLink.map((link, index) => (
+                                        <li className='inline-block' key={index}>
+                                            <Link
+                                                href={link.href}
+                                                className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+                                            >
+                                                {link.title}
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </>
                             ) : (
                                 <li className='inline-block'>
                                     <Link
-                                        href={'/api/auth/signin'}
+                                        href={signInHeaderNavLink.href}
                                         className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
                                     >
-                                        ورود
+                                        {signInHeaderNavLink.title}
                                     </Link>
                                 </li>
                             )}

@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import Link from './Link'
-import headerNavLinks from '/data/headerNavLinks'
+import {headerNavLinks, sessionHeaderNavLink, signInHeaderNavLink} from '/data/headerNavLinks'
 import {useSession} from "next-auth/react";
 
 const MobileNav = () => {
     const [navShow, setNavShow] = useState(false)
-    const {data: session, status} = useSession()
+    const {data: session} = useSession()
     const onToggleNav = () => {
         setNavShow((status) => {
             if (status) {
@@ -59,8 +59,8 @@ const MobileNav = () => {
                     onClick={onToggleNav}
                 ></button>
                 <nav className="fixed mt-8 h-full">
-                    {headerNavLinks.map((link) => (
-                        <div key={link.title} className="px-12 py-4">
+                    {headerNavLinks.map((link, index) => (
+                        <div key={index} className="px-12 py-4">
                             <Link
                                 href={link.href}
                                 className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
@@ -72,38 +72,26 @@ const MobileNav = () => {
                     ))}
                     {session ? (
                         <>
-                            <div className="px-12 py-4">
-                                <Link
-                                    href={'/mystory'}
-                                    className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                                >
-                                    داستان من
-                                </Link>
-                            </div>
-                            <div className="px-12 py-4">
-                                <Link
-                                    href={'/dashboard'}
-                                    className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                                >
-                                    داشبورد
-                                </Link>
-                            </div>
-                            <div className="px-12 py-4">
-                                <Link
-                                    href={'/api/auth/signout'}
-                                    className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                                >
-                                    خروج
-                                </Link>
-                            </div>
+                            {sessionHeaderNavLink.map((link, index) => (
+                                <div key={index} className="px-12 py-4">
+                                    <Link
+                                        href={link.href}
+                                        onClick={onToggleNav}
+                                        className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                                    >
+                                        {link.title}
+                                    </Link>
+                                </div>
+                            ))}
                         </>
                     ) : (
                         <div className="px-12 py-4">
                             <Link
-                                href={'/api/auth/signin'}
+                                href={signInHeaderNavLink.href}
+                                onClick={onToggleNav}
                                 className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
                             >
-                                ورود
+                                {signInHeaderNavLink.title}
                             </Link>
                         </div>
                     )}
