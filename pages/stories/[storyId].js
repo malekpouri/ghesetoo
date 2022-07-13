@@ -40,7 +40,7 @@ function storyById({storyId}) {
     }, [data]);
 
     if (!story) {
-        return <>درحال بارگزاری ...</>
+        return <>درحال بارگذاری ...</>
     }
     return (
         <>

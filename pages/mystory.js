@@ -249,7 +249,7 @@ const mystory = () => {
                                 htmlFor="dropzone-file"
                                 className="absolute inset-0 bottom-0 z-10 flex cursor-pointer items-center justify-center rounded-full bg-white bg-opacity-50 text-xs text-black opacity-0  duration-300 hover:opacity-100 md:text-base "
                             >
-                                بار گزاری تصویر
+                                بار گذاری تصویر
                                 <input
                                     id="dropzone-file"
                                     type="file"
