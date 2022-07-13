@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'محمد',
   headerTitle: 'قصه تو',
   occupation:'برنامه نویس',
-  description: 'محلی برای به اشتراک گزاری یک صفحه از زندگی کاری',
+  description: 'محلی برای به اشتراک گذاری یک صفحه از زندگی کاری',
   language: 'fa-ir',
   theme: 'system', // system, dark or light
   siteUrl: 'https://gheseto.ir',
