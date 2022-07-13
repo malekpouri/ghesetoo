@@ -6,6 +6,7 @@ import Software from '@/data/image/software.svg'
 import Environment from '@/data/image/environment3.svg'
 import {useEffect, useState} from "react";
 import useSWR from "swr";
+import PageViewCount from "@/components/PageViewCount";
 
 export async function getServerSideProps(context) {
     const {
@@ -28,13 +29,18 @@ function storyById({storyId}) {
         return data
     }
     const {data} = useSWR('getStoryById', fetcher)
+    const increasePageView = async (storyId) => {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/increasePageCount/${storyId}`)
+    }
     useEffect(() => {
-        if (data)
+        if (data) {
             setStory(data)
+            increasePageView(storyId)
+        }
     }, [data]);
 
     if (!story) {
-        return <>پیدا نشد ...</>
+        return <>درحال بارگزاری ...</>
     }
     return (
         <>
@@ -57,9 +63,11 @@ function storyById({storyId}) {
                             {story.nickname}
                         </h3>
                         <div className="text-gray-500 dark:text-gray-400">{story.jobTitle}</div>
-                        <div className="flex space-x-3 pt-6">{story.email}</div>
+                        <PageViewCount pageCount={story.pageViewCount}/>
+                        <div className="flex text-gray-600 dark:text-gray-500 space-x-3 pt-6">{story.email}</div>
                     </div>
-                    <div className="prose whitespace-pre-line max-w-none pt-8 pb-8 text-justify dark:prose-dark xl:col-span-2">
+                    <div
+                        className="prose whitespace-pre-line max-w-none pt-8 pb-8 text-justify dark:prose-dark xl:col-span-2">
                         {story.shortStory}
                         <div className="mt-10 opacity-100">
                             <ol className="relative border-r border-gray-200 dark:border-gray-700">
