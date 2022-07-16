@@ -7,6 +7,7 @@ import Environment from '@/data/image/environment3.svg'
 import {useEffect, useState} from "react";
 import useSWR from "swr";
 import PageViewCount from "@/components/PageViewCount";
+import HeartLikeButton from "@/components/HeartLikeButton";
 
 export async function getServerSideProps(context) {
     const {
@@ -64,6 +65,7 @@ function storyById({storyId}) {
                         </h3>
                         <div className="text-gray-500 dark:text-gray-400">{story.jobTitle}</div>
                         <PageViewCount pageCount={story.pageViewCount}/>
+                        <HeartLikeButton likeCount={story.userLike} storyId={storyId} />
                         <div className="flex text-gray-600 dark:text-gray-500 space-x-3 pt-6">{story.email}</div>
                     </div>
                     <div
