@@ -31,6 +31,7 @@ export default NextAuth({
           id: token.user.id,
           email: token.user.email,
           family: token.user.family,
+          viewEmail:token.user.viewEmail,
         },
         process.env.GOOGLE_SECRET_ID,
         { expiresIn: '24h' }
@@ -41,6 +42,7 @@ export default NextAuth({
       session.user.family = token.user.family
       session.user.name = token.user.name
       session.user.id = token.user.id
+      session.user.viewEmail= token.user.viewEmail
       return session
     },
     async jwt({ token, account }) {
@@ -50,6 +52,7 @@ export default NextAuth({
         email: token.email,
         name: token.name,
         family: null,
+        viewEmail:false
       }
       if (account) {
         token.accessToken = account.access_token
@@ -59,6 +62,7 @@ export default NextAuth({
       user.family = data.family
       user.id = data.id
       user.name = data.name
+      user.viewEmail=data.viewEmail
       token.user = user
       return token
     },

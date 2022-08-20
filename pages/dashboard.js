@@ -5,7 +5,7 @@ import { getSession, signOut, useSession } from 'next-auth/react'
 import AccessDenied from './404'
 import axios from 'axios'
 
-function dashboard(props) {
+function dashboard() {
   /* eslint-disable */
 
   const [modalOn, setModalOn] = useState(false)
@@ -14,6 +14,7 @@ function dashboard(props) {
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState(null);
   const [family, setFamily] = useState("");
+  const [viewEmail, setViewEmail] = useState(false);
   const [saveProfile, setSaveProfile] = useState(false);
   const { data: session } = useSession()
 
@@ -43,6 +44,7 @@ useEffect( ()=>{
     setName(session.user.name)
     setFamily(session.user.family)
     setUserId(session.user.id)
+    setViewEmail(session.user.viewEmail)
   }
   getData()
 },[])
@@ -57,6 +59,7 @@ if (saveProfile) {
       email:email,
       name:name,
       family:family,
+      viewEmail:viewEmail
     }
 
     const response = await fetch(process.env.public_url + '/api/saveUser', {
@@ -191,7 +194,16 @@ if (saveProfile) {
               placeholder="نام خانوادگی"
             />
           </div>
-
+          <div className="form-check m-5">
+            <input
+                className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                type="checkbox" value="" id="flexCheckDefault" />
+              <label className="form-check-label inline-block text-gray-800" htmlFor="flexCheckDefault"
+              checked={viewEmail}
+              onChange={() => setViewEmail(!viewEmail)}>
+                نمایش ایمیل برای دیگران
+              </label>
+          </div>
           <div className="flex items-center justify-center">
             <div className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
               <button
