@@ -66,7 +66,7 @@ function storyById({storyId}) {
                         <div className="text-gray-500 dark:text-gray-400">{story.jobTitle}</div>
                         <PageViewCount pageCount={story.pageViewCount}/>
                         <HeartLikeButton likeCount={story.userLike} storyId={storyId} />
-                        <div className="flex text-gray-600 dark:text-gray-500 space-x-3 pt-6">{story.email}</div>
+                        {story.viewMail == true && <div className="flex text-gray-600 dark:text-gray-500 space-x-3 pt-6">{story.email}</div>}
                     </div>
                     <div
                         className="prose whitespace-pre-line max-w-none pt-8 pb-8 text-justify dark:prose-dark xl:col-span-2">
